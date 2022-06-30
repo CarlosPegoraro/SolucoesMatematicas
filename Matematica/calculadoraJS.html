@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link href="css/cores.css" rel="stylesheet">
+    <link href="css/corpo.css" rel="stylesheet">
+    <link href="css/est_fontes.css" rel="stylesheet">
+    <link href="css/fontes.css" rel="stylesheet">
+    <link href="css/tam_fontes.css" rel="stylesheet">
+    <link href="css/box.css" rel="stylesheet">
+    <link rel="sortcut icon" href="css/imagens/ivonecalculadora.png" type="image/x-icon" />
+    <title>Calculadora Java</title>
+    <style>
+        body {
+            margin: 6% 5%;
+            height: auto;
+            background-size: cover!important;
+            background: url(css/imagens/lousapreta.jpg);
+            background-attachment: fixed;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <p class="fonte24 branco negrito segoeui">Calculadora em Java</p>
+    <p class="fonte16 branco negrito segoeui">Primeiro numero/Raiz/base</p> <input id="n1" type="number"> <br>
+    <p class="fonte16 branco negrito segoeui">Segundo numero/Expoente</p> <input id="n2" type="number"> <br><br>
+    <button class="fonte10 preto negrito lucidasans" onclick="somar()">+</button>
+    <button class="fonte10 preto negrito lucidasans" onclick="subtrair()">-</button>
+    <button class="fonte10 preto negrito lucidasans" onclick="multiplicar()">•</button><br><br>
+    <button class="fonte10 preto negrito lucidasans" onclick="dividir()">÷</button>
+    <button class="fonte10 preto negrito lucidasans" onclick="dividirArredondado()">÷ (.00)</button><br><br>
+    <button class="fonte10 preto negrito lucidasans" onclick="potencializar()">x²</button>
+    <button class="fonte10 preto negrito lucidasans" onclick="racionalizar()">√x</button>
+    <button class="fonte10 preto negrito lucidasans" onclick="log10()">LogBase10</button>
+    <br><br>
+    <p class="fonte16 branco negrito segoeui">O Resultado é: <span></span></p>
+
+    <script>
+        var n1 = document.querySelector('#n1')
+        var n2 = document.querySelector('#n2')
+        var resultado = document.querySelector('span')
+
+        function somar()
+        {
+            resultado.innerHTML = parseInt(n1.value) + parseInt(n2.value)
+        }
+
+        function subtrair()
+        {
+            resultado.innerHTML = parseInt(n1.value) - parseInt(n2.value)
+        }
+
+        function multiplicar()
+        {
+            resultado.innerHTML = parseInt(n1.value) * parseInt(n2.value)
+        }
+
+        function dividir()
+        {
+            resultado.innerHTML = parseInt(n1.value) / parseInt(n2.value)
+        }
+
+        function dividirArredondado()
+        {
+            resultado.innerHTML = Math.round((parseInt(n1.value) / parseInt(n2.value)) * 100) / 100
+        }
+
+        function potencializar()
+        {
+            resultado.innerHTML = Math.pow(parseInt(n1.value), parseInt(n2.value))
+        }
+
+        function racionalizar()
+        {
+            resultado.innerHTML = Math.round(Math.sqrt(parseInt(n1.value)) * 100) / 100
+        }
+
+        function log10()
+        {
+            resultado.innerHTML = Math.log10(parseInt(n1.value))
+        }
+    </script>
+</body>
